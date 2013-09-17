@@ -40,10 +40,13 @@ if(!is_array($posts)) {
 
         <div class="jumbotron">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-7">
                     <?php
                         echo $this->Form->create(false, array('type'=> 'post'));
                         echo $this->Form->input('blog_name', array('class'=> 'form-control', "default"=> $blog_name));
+                    ?>
+                        <p><small>Blog name can be: domain.com, http://domain.com, blogname.tumblr.com, http://blogname.tumblr.com, or blogname</small></p>
+                    <?php
                         echo $this->Form->submit('submit', array('class'=> 'btn btn-default'));
                         echo $this->Form->end();
                     ?>
