@@ -1,39 +1,19 @@
-CakePHP
-=======
+Tumblr API Example
+==================
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+A simple website that does the following.
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+*Build a form that accepts a Tumblr blog name as it.s input and use the Tumblr API to retrieve posts for that blog.
+*Results should be shown 10 at a time and have correctly functioning pagination links. ie. .next. link only works if there are more posts, .3. link should show results 21-30, etc.
+*For each post, show it.s post ID, publish date and a link to the post on Tumblr.
+*Use of a PHP framework is not required but strongly encouraged. You may choose the framework you are most comfortable with.
+*An emphasis should not be given on design. However, the post results should still be readable
 
-Some Handy Links
-----------------
+### Implementation
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
+We're using [CakePHP](http://cakephp.org/) and [Bootstrap 3.0](http://getbootstrap.com/)
 
-[Cookbook](http://book.cakephp.org) - THE Cake user documentation; start learning here!
+### Limitations
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
-
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
-
-[API](http://api.cakephp.org) - A reference to Cake's classes
-
-[CakePHP TV](http://tv.cakephp.org) - Screen casts from events and video tutorials
-
-[The Cake Software Foundation](http://cakefoundation.org/) - promoting development related to CakePHP
-
-Get Support!
-------------
-
-[Our Google Group](https://groups.google.com/group/cake-php) - community mailing list and forum
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake.
-
-[Q & A](http://ask.cakephp.org/) - Ask questions here, all questions welcome
-
-[Lighthouse](https://cakephp.lighthouseapp.com/) - Got issues? Please tell us!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+* Functional but not pretty in Internet Explorer <= 8
+* A little slow when loading blogs that have large numbers of posts
