@@ -11,6 +11,7 @@ class HomeController extends AppController {
     private function tumblrApiCall($blog_name, $url) {
         $api_key = Configure::read('tumblr_api');
         $url .= "&api_key=$api_key";
+        //echo "$url<br />";
 
         $ch = curl_init($url);
         curl_setopt_array($ch, array(
@@ -39,7 +40,7 @@ class HomeController extends AppController {
 
     private function loadPostsRange($blog_name, $offset=0) {
         $api_key = Configure::read('tumblr_api');
-        $url = "http://api.tumblr.com/v2/blog/$blog_name/posts/?offset=$offset";
+        $url = "http://api.tumblr.com/v2/blog/$blog_name/posts/?limit=10&offset=$offset";
         //echo "$url<br />";
         $data = $this->tumblrApiCall($blog_name, $url);
 
@@ -65,7 +66,7 @@ class HomeController extends AppController {
         }
 
         $start = 0;
-        $offset = 20;
+        $offset = 10;
         do {
             if($offset > $numPosts) {
                 $offset = $numPosts-1;
@@ -77,7 +78,7 @@ class HomeController extends AppController {
             //echo "$start - $offset<br />";
             //echo "count=" . count($posts) . "<hr />";
             $start = $offset+1;
-            $offset += 20;
+            $offset += 10;
         } while($offset <= $numPosts);
 
         //echo "count=" . count($this->posts) . '<br />';
@@ -125,6 +126,7 @@ class HomeController extends AppController {
         }
 
         if($this->loadPosts($data['blog_name'])) {
+            $this->Paginator->settings = $this->paginate;
             $data['posts'] = $this->Paginator->paginate('Home');
         }
 
